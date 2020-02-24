@@ -1,0 +1,4 @@
+{
+  "required": "This field is required",
+  "maxLength": "This field must have at least {0} characteres"
+}
