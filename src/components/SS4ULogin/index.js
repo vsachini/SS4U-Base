@@ -27,10 +27,18 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     minHeight: '100%'
   },
+  titleContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
   title: {
     color: theme.palette.primary.title.color,
-    fontSize: '1.2em',
-    margin: '1em 0'
+    fontSize: '1.8em',
+    letterSpacing: '.5rem',
+    margin: '.2em 0',
+    fontWeight: 'bold'
   },
   subtitle: {
     color: theme.palette.primary.subtitle.color
@@ -40,6 +48,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     marginTop: '2em'
+  },
+  forgotPass: {
+    textAlign: 'center'
   }
 }))
 
@@ -57,13 +68,18 @@ const SS4ULogin = props => {
         <img src='assets/img/logo.png' alt='logo' />
       </Grid>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
-        <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
-        <span className={ classes.subtitle } > Welcome back! Please login to your account. </span>
+        <div className={ classes.titleContainer }>
+          <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
+          <span className={ classes.subtitle } > Welcome back! Please login to your account. </span>
+        </div>
+
         <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>
           <SS4UTextField label='Username' name='username' required />
           <SS4UTextField label='Password' name='password' type='password' required />
 
-          <SS4ULink label='Forgot Password' href='#' />
+          <div className={ classes.forgotPass }>
+            <SS4ULink label='Forgot Password' href='#' />
+          </div>
 
           <div className={ classes.buttonsContainer }>
             <Button variant="contained" type='submit'> Login </Button>

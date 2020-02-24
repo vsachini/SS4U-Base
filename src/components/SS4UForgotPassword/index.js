@@ -28,8 +28,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     color: theme.palette.primary.title.color,
-    fontSize: '1.2em',
-    margin: '1em 0'
+    fontSize: '1.8em',
+    letterSpacing: '.5rem',
+    margin: '.2em 0',
+    fontWeight: 'bold'
   },
   subtitle: {
     color: theme.palette.primary.subtitle.color

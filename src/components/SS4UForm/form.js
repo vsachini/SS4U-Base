@@ -14,7 +14,7 @@ const Form = props => {
   const { actions } = React.useContext(SS4UFormContext)
 
   return (
-    <form onSubmit={ actions.handleSubmit( props.handlesubmit ) } noValidate { ...props } className={ classes.root } >
+    <form onSubmit={ actions.handleSubmit( props.handlesubmit ) } noValidate { ...props } className={ `${ classes.root } ${ props.className }` } >
       { props.children }
     </form>
   )

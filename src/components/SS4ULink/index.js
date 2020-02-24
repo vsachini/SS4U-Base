@@ -17,7 +17,7 @@ const SS4ULink = ({ label, href, ...props }) => {
   const classes = useStyles()
 
   return (
-    <a href={ href } className={ classes.root } { ...props }> { label } </a>
+    <a href={ href } className={ classes.root } > { label } </a>
   )
 }
 

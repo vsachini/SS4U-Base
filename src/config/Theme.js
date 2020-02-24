@@ -15,7 +15,7 @@ export default createMuiTheme({
         secondary: theme.secondaryColor
       },
       title: {
-        color: theme.primaryColor,
+        color: theme.primaryColor
       },
       subtitle: {
         color: 'rgba(77, 79, 92, .5)'

@@ -36,7 +36,8 @@ var useStyles = (0, _core.makeStyles)(function (theme) {
     root: {
       display: 'flex',
       flexFlow: 'column',
-      margin: '1em 0'
+      margin: '1em 0',
+      width: '100%'
     },
     errorMessage: {
       fontSize: '.6em',
