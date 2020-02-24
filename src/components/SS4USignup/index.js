@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Grid, Button } from '@material-ui/core'
+import { makeStyles, Grid, Button, Hidden } from '@material-ui/core'
 import SS4UForm from '../SS4UForm'
 import SS4UTextField from '../SS4UTextField';
 import SS4ULink from '../SS4ULink';
@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     flexDirection: 'column',
     minHeight: '100%'
+  },
+  mobileLogo: {
+    width: '10em'
   },
   title: {
     color: theme.palette.primary.title.color,
@@ -56,10 +59,16 @@ const SS4USignup = props => {
 
   return (
     <Grid container spacing={ 0 } className={ classes.root } >
-      <Grid item sm={ 6 } className={ classes.leftColumn } >
-        <img src='assets/img/logo.png' alt='logo' />
-      </Grid>
+      <Hidden smDown>
+        <Grid item sm={ 6 } className={ classes.leftColumn } >
+          <img src='assets/img/logo.png' alt='logo' />
+        </Grid>
+      </Hidden>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
+        <Hidden smUp>
+          <img src='assets/img/logo.png' alt='logo' className={ classes.mobileLogo } />
+        </Hidden>
+
         <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
         <span className={ classes.subtitle } > Please complete to create your account. </span>
         <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>

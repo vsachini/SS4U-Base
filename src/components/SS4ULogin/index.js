@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Grid, Button } from '@material-ui/core'
+import { makeStyles, Grid, Button, Hidden } from '@material-ui/core'
 import SS4UForm from '../SS4UForm'
 import SS4UTextField from '../SS4UTextField';
 import SS4ULink from '../SS4ULink';
@@ -8,7 +8,10 @@ import SS4ULink from '../SS4ULink';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%'
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   form: {
     width: '20em'
@@ -26,6 +29,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     flexDirection: 'column',
     minHeight: '100%'
+  },
+  mobileLogo: {
+    width: '10em'
   },
   titleContainer: {
     display: 'flex',
@@ -64,11 +70,18 @@ const SS4ULogin = props => {
 
   return (
     <Grid container spacing={ 0 } className={ classes.root } >
-      <Grid item sm={ 6 } className={ classes.leftColumn } >
-        <img src='assets/img/logo.png' alt='logo' />
-      </Grid>
+      <Hidden smDown>
+        <Grid item sm={ 6 } className={ classes.leftColumn } >
+          <img src='assets/img/logo.png' alt='logo' />
+        </Grid>
+      </Hidden>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
         <div className={ classes.titleContainer }>
+
+          <Hidden smUp>
+            <img src='assets/img/logo.png' alt='logo' className={ classes.mobileLogo } />
+          </Hidden>
+
           <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
           <span className={ classes.subtitle } > Welcome back! Please login to your account. </span>
         </div>

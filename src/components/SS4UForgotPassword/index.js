@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Grid, Button } from '@material-ui/core'
+import { makeStyles, Grid, Button, Hidden } from '@material-ui/core'
 import SS4UForm from '../SS4UForm'
 import SS4UTextField from '../SS4UTextField';
 import SS4ULink from '../SS4ULink';
@@ -54,10 +54,16 @@ const SS4UForgotPassword = props => {
 
   return (
     <Grid container spacing={ 0 } className={ classes.root } >
-      <Grid item sm={ 6 } className={ classes.leftColumn } >
-        <img src='assets/img/logo.png' alt='logo' />
-      </Grid>
+      <Hidden smDown>
+        <Grid item sm={ 6 } className={ classes.leftColumn } >
+          <img src='assets/img/logo.png' alt='logo' />
+        </Grid>
+      </Hidden>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
+        <Hidden smUp>
+          <img src='assets/img/logo.png' alt='logo' className={ classes.mobileLogo } />
+        </Hidden>
+
         <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
         <span className={ classes.subtitle } > Enter your email and you will receive a link to reset your password. </span>
         <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>
