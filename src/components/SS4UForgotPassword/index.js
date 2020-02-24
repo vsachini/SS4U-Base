@@ -3,8 +3,7 @@ import { makeStyles, Grid, Button } from '@material-ui/core'
 import SS4UForm from '../SS4UForm'
 import SS4UTextField from '../SS4UTextField';
 import SS4ULink from '../SS4ULink';
-// import SS4UForm from '@bit/smart-solution-4u.form.s-s4-u-form';
-// import SS4UTextField from '@bit/smart-solution-4u.form.s-s4-u-text-field';
+import SS4UCheckbox from '../SS4UCheckbox';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4ULogin = props => {
+const SS4UForgotPassword = props => {
 
   const classes = useStyles()
 
@@ -58,16 +57,13 @@ const SS4ULogin = props => {
       </Grid>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
         <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
-        <span className={ classes.subtitle } > Welcome back! Please login to your account. </span>
+        <span className={ classes.subtitle } > Enter your email and you will receive a link to reset your password. </span>
         <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>
-          <SS4UTextField label='Username' name='username' required />
-          <SS4UTextField label='Password' name='password' type='password' required />
 
-          <SS4ULink label='Forgot Password' href='#' />
-
+          <SS4UTextField label='Email' name='email' type='email' required />
+          
           <div className={ classes.buttonsContainer }>
-            <Button variant="contained" type='submit'> Login </Button>
-            <Button variant="outlined"> Sign up </Button>
+            <Button variant="contained" type='submit'> Send </Button>
           </div>
         </SS4UForm>
       </Grid>
@@ -75,4 +71,4 @@ const SS4ULogin = props => {
   )
 }
 
-export default SS4ULogin
+export default SS4UForgotPassword

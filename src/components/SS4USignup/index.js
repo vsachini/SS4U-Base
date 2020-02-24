@@ -3,6 +3,7 @@ import { makeStyles, Grid, Button } from '@material-ui/core'
 import SS4UForm from '../SS4UForm'
 import SS4UTextField from '../SS4UTextField';
 import SS4ULink from '../SS4ULink';
+import SS4UCheckbox from '../SS4UCheckbox';
 // import SS4UForm from '@bit/smart-solution-4u.form.s-s4-u-form';
 // import SS4UTextField from '@bit/smart-solution-4u.form.s-s4-u-text-field';
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4ULogin = props => {
+const SS4USignup = props => {
 
   const classes = useStyles()
 
@@ -58,21 +59,28 @@ const SS4ULogin = props => {
       </Grid>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
         <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
-        <span className={ classes.subtitle } > Welcome back! Please login to your account. </span>
+        <span className={ classes.subtitle } > Please complete to create your account. </span>
         <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>
-          <SS4UTextField label='Username' name='username' required />
-          <SS4UTextField label='Password' name='password' type='password' required />
 
-          <SS4ULink label='Forgot Password' href='#' />
+          <SS4UTextField label='First name' name='firstname' required />
+          <SS4UTextField label='Last name' name='lastname' required />
+
+          <SS4UTextField label='Username' name='username' required />
+          <SS4UTextField label='Email' name='email' required />
+          <SS4UTextField label='Password' type='password' name='password' required />
+          <SS4UTextField label='Confirm Password' type='password' name='confirmpassword' required />
+          
+          <SS4UCheckbox label='I agree with terms and conditions' />
 
           <div className={ classes.buttonsContainer }>
-            <Button variant="contained" type='submit'> Login </Button>
-            <Button variant="outlined"> Sign up </Button>
+            <Button variant="contained" type='submit'> Sign up </Button>
           </div>
         </SS4UForm>
+
+        <SS4ULink label='Already have an account? Login' href='#' />
       </Grid>
     </Grid>
   )
 }
 
-export default SS4ULogin
+export default SS4USignup
