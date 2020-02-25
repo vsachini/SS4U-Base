@@ -6,7 +6,7 @@ const SS4UForm = props => {
 
   return (
     <SS4UFormProvider>
-      <Form handlesubmit={ props.handlesubmit } { ...props }>
+      <Form handlesubmit={ props.handlesubmit } className={ props.className }>
         { props.children }
       </Form>
     </SS4UFormProvider>

@@ -19,7 +19,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/s-s4-u-forgot-password@0.0.1": {
+    "smart-solution-4u.components/s-s4-u-forgot-password@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SS4UForgotPassword/index.js",
@@ -32,33 +32,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/s-s4-u-link@0.0.1": {
-        "files": [
-            {
-                "relativePath": "src/components/SS4ULink/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/components/SS4ULink/index.js",
-        "trackDir": "src/components/SS4ULink",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "smart-solution-4u.components/s-s4-u-signup@0.0.1": {
-        "files": [
-            {
-                "relativePath": "src/components/SS4USignup/index.js",
-                "test": false,
-                "name": "index.js"
-            }
-        ],
-        "mainFile": "src/components/SS4USignup/index.js",
-        "trackDir": "src/components/SS4USignup",
-        "origin": "AUTHORED",
-        "exported": true
-    },
-    "smart-solution-4u.form/s-s4-u-form@1.0.1": {
+    "smart-solution-4u.components/s-s4-u-form@1.0.1": {
         "files": [
             {
                 "relativePath": "src/components/SS4UForm/context.js",
@@ -81,7 +55,20 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.form/s-s4-u-login@0.0.2": {
+    "smart-solution-4u.components/s-s4-u-link@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/SS4ULink/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/SS4ULink/index.js",
+        "trackDir": "src/components/SS4ULink",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "smart-solution-4u.components/s-s4-u-login@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SS4ULogin/index.js",
@@ -94,7 +81,20 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.form/s-s4-u-text-field@1.0.2": {
+    "smart-solution-4u.components/s-s4-u-signup@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/SS4USignup/index.js",
+                "test": false,
+                "name": "index.js"
+            }
+        ],
+        "mainFile": "src/components/SS4USignup/index.js",
+        "trackDir": "src/components/SS4USignup",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "smart-solution-4u.components/s-s4-u-text-field@1.0.2": {
         "files": [
             {
                 "relativePath": "src/components/SS4UTextField/errorMessages.json",

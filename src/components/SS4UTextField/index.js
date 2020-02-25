@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4UTextField = props => {
+const SS4UTextField = ({ onChange, ...props }) => {
 
   const classes = useStyles()
 
@@ -53,9 +53,13 @@ const SS4UTextField = props => {
     }
   }, [ actions.errors, options.name, actions.control.fieldsRef, options.value ])
 
+  const handleChange = React.useCallback( e => {
+    onChange({ name: e.target.name, value: e.target.value })
+  }, [ onChange ])
+
   return (
     <div className={ classes.root }>
-      <TextField { ...options } inputRef={ actions.register( validations ) } />
+      <TextField { ...options } inputRef={ actions.register( validations ) } onChange={ handleChange } />
       { actions.errors[options.name] && validationError.type === actions.errors[options.name].type && <span className={ classes.errorMessage }> { validationError.message } </span> }
     </div>
   )
