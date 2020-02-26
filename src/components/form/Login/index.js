@@ -1,11 +1,7 @@
 import React from 'react'
 import { makeStyles, Grid, Button, Hidden } from '@material-ui/core'
-import SS4UForm from '../SS4UForm'
-import SS4UTextField from '../SS4UTextField';
-import SS4ULink from '../SS4ULink';
-import { withRouter } from 'react-router-dom';
-// import SS4UForm from '@bit/smart-solution-4u.form.s-s4-u-form';
-// import SS4UTextField from '@bit/smart-solution-4u.form.s-s4-u-text-field';
+import Form from '../Form'
+import TextInput from '../../ui/TextInput'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -68,7 +64,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4ULogin = props => {
+const Login = props => {
 
   const classes = useStyles()
   const [ login, setLogin ] = React.useState({})
@@ -77,16 +73,8 @@ const SS4ULogin = props => {
     setLogin(c => ({ ...c, [name]: value }))
   }, [])
 
-  const handleSubmit = e => {
-    console.log(login)
-  }
-
-  const handleSignUp = () => {
-    props.history.push(`${ props.match.path }${ process.env.REACT_APP_SIGNUP_ROUTE }`)
-  }
-
-  const handleForgotPassword = () => {
-    props.history.push(`${ props.match.path }${ process.env.REACT_APP_FORGOT_PASSWORD }`)
+  const handleSubmit = () => {
+    props.onLogin( login )
   }
 
   return (
@@ -98,7 +86,6 @@ const SS4ULogin = props => {
       </Hidden>
       <Grid item xs={ 12 } sm={ 6 } className={ classes.rightColumn } >
         <div className={ classes.titleContainer }>
-
           <Hidden smUp>
             <img src={ `assets/img/${ process.env.REACT_APP_LOGO }` } alt='logo' className={ classes.mobileLogo } />
           </Hidden>
@@ -107,23 +94,22 @@ const SS4ULogin = props => {
           <span className={ classes.subtitle } > Welcome back! Please login to your account. </span>
         </div>
 
-        <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>
-          <SS4UTextField label='Username' name='username' value={ login.username || '' } onChange={ handleChange } required />
-          <SS4UTextField label='Password' name='password' type='password' value={ login.password || '' } onChange={ handleChange } required />
+        <Form className={ classes.form } handlesubmit={ handleSubmit }>
+          <TextInput label='Username' name='username' value={ login.username || '' } onChange={ handleChange } required maxLength={ 4 } />
+          <TextInput label='Password' name='password' type='password' value={ login.password || '' } onChange={ handleChange } required />
 
           <div className={ classes.forgotPass }>
-            {/* <SS4ULink label='' onClick={ handleForgotPassword } /> */}
-            <Button onClick={ handleForgotPassword } className={ classes.buttonLink }> Forgot Password </Button>
+            <Button onClick={ props.handleForgotPassword } className={ `${ classes.buttonLink } ${ !props.handleForgotPassword && classes.dNone }` }> Forgot Password </Button>
           </div>
 
           <div className={ classes.buttonsContainer }>
             <Button variant="contained" type='submit'> Login </Button>
-            <Button variant="outlined" onClick={ handleSignUp }> Sign up </Button>
+            <Button variant="outlined" onClick={ props.handleSignUp } className={ `${ !props.handleSignUp && classes.dNone }` }> Sign up </Button>
           </div>
-        </SS4UForm>
+        </Form>
       </Grid>
     </Grid>
   )
 }
 
-export default withRouter( SS4ULogin )
+export default Login

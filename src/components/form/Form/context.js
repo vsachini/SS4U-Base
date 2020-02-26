@@ -1,9 +1,9 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 
-const SS4UFormContext = React.createContext()
+const FormContext = React.createContext()
 
-export const SS4UFormProvider = props => {
+export const FormProvider = props => {
   
   // const [ state, setState ] = useState({ form: useForm() });
   const actions = useForm()
@@ -15,8 +15,8 @@ export const SS4UFormProvider = props => {
   //   }))
   // }), [ setState ])
 
-  return <SS4UFormContext.Provider value={{ actions }}> { props.children } </SS4UFormContext.Provider>
+  return <FormContext.Provider value={{ actions }}> { props.children } </FormContext.Provider>
 }
 
-export const SS4UFormConsumer = SS4UFormContext.Consumer
-export default SS4UFormContext
+export const FormConsumer = FormContext.Consumer
+export default FormContext

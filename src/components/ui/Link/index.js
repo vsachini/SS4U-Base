@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4ULink = ({ label, href, ...props }) => {
+const Link = ({ label, href, ...props }) => {
 
   const classes = useStyles()
 
@@ -21,4 +21,4 @@ const SS4ULink = ({ label, href, ...props }) => {
   )
 }
 
-export default SS4ULink
+export default Link

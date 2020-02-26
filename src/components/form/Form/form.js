@@ -1,5 +1,5 @@
 import React from 'react'
-import SS4UFormContext from './context'
+import FormContext from './context'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
@@ -8,10 +8,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Form = props => {
+const FormContainer = props => {
 
   const classes = useStyles()
-  const { actions } = React.useContext(SS4UFormContext)
+  const { actions } = React.useContext(FormContext)
 
   return (
     <form onSubmit={ actions.handleSubmit( props.handlesubmit ) } noValidate className={ `${ classes.root } ${ props.className }` } >
@@ -21,4 +21,4 @@ const Form = props => {
 
 }
 
-export default Form
+export default FormContainer

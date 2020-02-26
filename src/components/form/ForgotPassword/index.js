@@ -1,11 +1,7 @@
 import React from 'react'
 import { makeStyles, Grid, Button, Hidden } from '@material-ui/core'
-import SS4UForm from '../SS4UForm'
-import SS4UTextField from '../SS4UTextField';
-import SS4ULink from '../SS4ULink';
-import SS4UCheckbox from '../SS4UCheckbox';
-// import SS4UForm from '@bit/smart-solution-4u.form.s-s4-u-form';
-// import SS4UTextField from '@bit/smart-solution-4u.form.s-s4-u-text-field';
+import Form from '../Form'
+import TextInput from '../../ui/TextInput'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,9 +24,6 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     minHeight: '100%'
   },
-  mobileLogo: {
-    width: '10em'
-  },
   title: {
     color: theme.palette.primary.title.color,
     fontSize: '1.8em',
@@ -49,7 +42,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4USignup = props => {
+const ForgotPassword = props => {
 
   const classes = useStyles()
 
@@ -70,28 +63,18 @@ const SS4USignup = props => {
         </Hidden>
 
         <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
-        <span className={ classes.subtitle } > Please complete to create your account. </span>
-        <SS4UForm className={ classes.form } handlesubmit={ handleSubmit }>
+        <span className={ classes.subtitle } > Enter your email and you will receive a link to reset your password. </span>
+        <Form className={ classes.form } handlesubmit={ handleSubmit }>
 
-          <SS4UTextField label='First name' name='firstname' required />
-          <SS4UTextField label='Last name' name='lastname' required />
-
-          <SS4UTextField label='Username' name='username' required />
-          <SS4UTextField label='Email' name='email' required />
-          <SS4UTextField label='Password' type='password' name='password' required />
-          <SS4UTextField label='Confirm Password' type='password' name='confirmpassword' required />
+          <TextInput label='Email' name='email' type='email' required />
           
-          <SS4UCheckbox label='I agree with terms and conditions' />
-
           <div className={ classes.buttonsContainer }>
-            <Button variant="contained" type='submit'> Sign up </Button>
+            <Button variant="contained" type='submit'> Send </Button>
           </div>
-        </SS4UForm>
-
-        <SS4ULink label='Already have an account? Login' href='#' />
+        </Form>
       </Grid>
     </Grid>
   )
 }
 
-export default SS4USignup
+export default ForgotPassword

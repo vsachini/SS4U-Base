@@ -1,14 +1,12 @@
 import React from 'react'
-import { TextField, makeStyles } from '@material-ui/core'
-import SS4UFormContext from '../SS4UForm/context'
+import { makeStyles } from '@material-ui/core'
 import errorMessages from './errorMessages'
+import FormContext from '../../form/Form/context'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
-    flexFlow: 'column',
-    margin: '1em 0',
-    width: '100%'
+    color: theme.palette.primary.text.color,
+    fontSize: '.8em'
   },
   errorMessage: {
     fontSize: '.6em',
@@ -16,9 +14,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SS4UTextField = ({ onChange, ...props }) => {
+const Checkbox = props => {
 
   const classes = useStyles()
+  const randomNo = Math.random()
 
   const options = {
     label: 'Input Text',
@@ -28,17 +27,11 @@ const SS4UTextField = ({ onChange, ...props }) => {
 
   const validations = {
     required: props.required,
-    min: props.min,
-    max: props.max,
-    minLength: props.minLength,
-    maxLength: props.maxLength,
-    pattern: props.pattern,
-    validate: props.validate,
   }
 
-  const context = React.useContext(SS4UFormContext)
+  const context = React.useContext(FormContext)
 
-  if (!context) throw new Error('The SS4UTextField must be used inside the SS4UForm')
+  if (!context) throw new Error('The Checkbox must be used inside the Form')
 
   const [ validationError, setValidationError ] = React.useState({ type:'', message: '' })
   const { actions } = context
@@ -53,13 +46,10 @@ const SS4UTextField = ({ onChange, ...props }) => {
     }
   }, [ actions.errors, options.name, actions.control.fieldsRef, options.value ])
 
-  const handleChange = React.useCallback( e => {
-    onChange({ name: e.target.name, value: e.target.value })
-  }, [ onChange ])
-
   return (
     <div className={ classes.root }>
-      <TextField { ...options } inputRef={ actions.register( validations ) } onChange={ handleChange } />
+      <input { ...options } id={ options.id || `checkbox${ randomNo }`} ref={ actions.register( validations ) } type='checkbox' />
+      <label for={ options.id || `checkbox${ randomNo }`}> { options.label } </label>
       { actions.errors[options.name] && validationError.type === actions.errors[options.name].type && <span className={ classes.errorMessage }> { validationError.message } </span> }
     </div>
   )
@@ -76,4 +66,4 @@ const getMessage = (err, complement) => {
   return message
 }
 
-export default SS4UTextField
+export default Checkbox
