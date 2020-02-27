@@ -1,31 +1,47 @@
 import { createMuiTheme } from '@material-ui/core';
 
 const theme = {
-  primaryColor: '#242348',
-  secondaryColor: '#5A55AA',
-  textColor: '#2B2B2B'
+  primaryColor: '#52D8DD',
+  secondaryColor: '#52D8DD',
+  textColor: '#2B2B2B',
+  menu: {
+    drawer: {
+      background: '#2B2B2B',
+      text: '#FFF',
+      icon: '#FFF'
+    },
+    appBar: {
+      background: '#FFF',
+      text: '#2B2B2B'
+    }
+  }
 }
 
 export default createMuiTheme({
   palette: {
     primary: {
       main: theme.primaryColor,
-      login: {
-        primary: theme.primaryColor,
-        secondary: theme.secondaryColor
-      },
-      title: {
-        color: theme.primaryColor
-      },
-      subtitle: {
-        color: 'rgba(77, 79, 92, .5)'
-      },
-      text: {
-        color: theme.textColor
-      }
     },
     secondary: {
       main: theme.secondaryColor
+    },
+    title: theme.primaryColor,
+    subtitle: 'rgba(77, 79, 92, .5)',
+    font: theme.textColor,
+    menu: {
+      drawer: {
+        background: theme.menu.drawer.background,
+        text: theme.menu.drawer.text,
+        icon: theme.menu.drawer.icon,
+        selected: theme.secondaryColor
+      },
+      appBar: {
+        background: theme.menu.appBar.background,
+        text: theme.menu.appBar.text
+      },
+    },
+    action: {
+      selected: 'rgba(0,0,0,.2)'
     }
   },
   overrides: {
@@ -41,7 +57,7 @@ export default createMuiTheme({
           backgroundColor: theme.secondaryColor
         }
       }
-    },
+    }
   //   MuiTypography: {
   //     body1: {
   //       fontSize: 'unset',

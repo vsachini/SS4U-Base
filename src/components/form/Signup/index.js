@@ -30,14 +30,14 @@ const useStyles = makeStyles(theme => ({
     width: '10em'
   },
   title: {
-    color: theme.palette.primary.title.color,
+    color: theme.palette.title.color,
     fontSize: '1.8em',
     letterSpacing: '.5rem',
     margin: '.2em 0',
     fontWeight: 'bold'
   },
   subtitle: {
-    color: theme.palette.primary.subtitle.color
+    color: theme.palette.subtitle.color
   },
   buttonsContainer: {
     display: 'flex',
@@ -49,11 +49,16 @@ const useStyles = makeStyles(theme => ({
 
 const Signup = props => {
 
+  const [ signup, setSignup ] = React.useState({})
   const classes = useStyles()
 
   const handleSubmit = e => {
-    console.log('a')
+    props.handleSubmit(signup)
   }
+
+  const handleChange = React.useCallback(({ name, value }) => {
+    setSignup(c => ({ ...c, [name]: value }))
+  }, [])
 
   return (
     <Grid container spacing={ 0 } className={ classes.root } >
@@ -69,17 +74,18 @@ const Signup = props => {
 
         <span className={ classes.title } > { process.env.REACT_APP_COMPANY_NAME } </span>
         <span className={ classes.subtitle } > Please complete to create your account. </span>
+        
         <Form className={ classes.form } handlesubmit={ handleSubmit }>
 
-          <TextInput label='First name' name='firstname' required />
-          <TextInput label='Last name' name='lastname' required />
+          <TextInput label='First name' name='firstname' required value={ signup.firstname || '' } onChange={ handleChange } />
+          <TextInput label='Last name' name='lastname' required value={ signup.lastname || '' } onChange={ handleChange } />
 
-          <TextInput label='Username' name='username' required />
-          <TextInput label='Email' name='email' required />
-          <TextInput label='Password' type='password' name='password' required />
-          <TextInput label='Confirm Password' type='password' name='confirmpassword' required />
+          <TextInput label='Username' name='username' required value={ signup.username || '' } onChange={ handleChange } />
+          <TextInput label='Email' name='email' required value={ signup.email || '' } onChange={ handleChange } />
+          <TextInput label='Password' type='password' name='password' required value={ signup.password || '' } onChange={ handleChange } />
+          <TextInput label='Confirm Password' type='password' name='confirmpassword' required value={ signup.confirmpassword || '' } onChange={ handleChange } />
           
-          <Checkbox label='I agree with terms and conditions' />
+          <Checkbox label='I agree with terms and conditions' required />
 
           <div className={ classes.buttonsContainer }>
             <Button variant="contained" type='submit'> Sign up </Button>

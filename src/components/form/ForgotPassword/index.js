@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100%',
-    background: `linear-gradient(${ theme.palette.primary.login.primary }, ${ theme.palette.primary.login.secondary })`
+    background: `linear-gradient(${ theme.palette.login.primary }, ${ theme.palette.login.secondary })`
   },
   rightColumn: {
     display: 'flex',
@@ -25,14 +25,14 @@ const useStyles = makeStyles(theme => ({
     minHeight: '100%'
   },
   title: {
-    color: theme.palette.primary.title.color,
+    color: theme.palette.title,
     fontSize: '1.8em',
     letterSpacing: '.5rem',
     margin: '.2em 0',
     fontWeight: 'bold'
   },
   subtitle: {
-    color: theme.palette.primary.subtitle.color
+    color: theme.palette.subtitle
   },
   buttonsContainer: {
     display: 'flex',

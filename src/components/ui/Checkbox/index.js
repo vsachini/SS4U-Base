@@ -1,11 +1,12 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, FormControlLabel } from '@material-ui/core'
 import errorMessages from './errorMessages'
 import FormContext from '../../form/Form/context'
+import MaterialCheckbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    color: theme.palette.primary.text.color,
+    color: theme.palette.font,
     fontSize: '.8em'
   },
   errorMessage: {
@@ -17,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 const Checkbox = props => {
 
   const classes = useStyles()
-  const randomNo = Math.random()
 
   const options = {
     label: 'Input Text',
@@ -48,8 +48,20 @@ const Checkbox = props => {
 
   return (
     <div className={ classes.root }>
-      <input { ...options } id={ options.id || `checkbox${ randomNo }`} ref={ actions.register( validations ) } type='checkbox' />
-      <label for={ options.id || `checkbox${ randomNo }`}> { options.label } </label>
+      <FormControlLabel
+        control={
+          <MaterialCheckbox
+            checked={ options.checked }
+            onChange={ options.handleChange }
+            value="checkedB"
+            color="primary"
+            inputRef={ actions.register( validations ) }
+            name={ options.name }
+          />
+        }
+        label={ options.label }
+      />
+
       { actions.errors[options.name] && validationError.type === actions.errors[options.name].type && <span className={ classes.errorMessage }> { validationError.message } </span> }
     </div>
   )

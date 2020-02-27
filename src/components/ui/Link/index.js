@@ -5,7 +5,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     fontSize: '.8em',
     textDecoration: 'none',
-    color: theme.palette.primary.text.color,
+    color: theme.palette.font,
     '&:hover': {
       color: theme.palette.secondary.main
     }
