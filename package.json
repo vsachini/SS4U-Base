@@ -8,11 +8,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^4.4.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hook-form": "^4.9.7",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "reactstrap": "^8.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,14 +43,17 @@
     "env": {
       "compiler": "bit.envs/compilers/react@1.0.14"
     },
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+    "componentsDefaultDirectory": "components/{namespace}/{name}",
+    "packageManager": "yarn"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addons": "^5.3.13",
     "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.13"
+    "@storybook/react": "^5.3.13",
+    "storybook-addon-material-ui": "^0.9.0-alpha.21",
+    "storybook-react-router": "^1.0.8"
   }
 }

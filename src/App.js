@@ -3,6 +3,9 @@ import './App.css';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { Dashboard, People, CalendarToday, Spa, Laptop } from '@material-ui/icons';
 import Menu from './components/ui/Menu';
+
+import Login from './components/form/Login'
+
 // import SS4ULogin from '@bit/smart-solution-4u.form.s-s4-u-login';
 
 function App() {
@@ -33,7 +36,8 @@ function App() {
             </div>
           )
         }} />
-        {/* <Route path='/signup' component={ SS4USignup } />
+        {<Route path='/signup' component={ Login } />
+        /* 
         <Route path='/forgotpassword' component={ SS4UForgotPassword } /> */}
       </Switch>
     </BrowserRouter>
