@@ -6,5 +6,5 @@ export default {
   component: DoubleColumn,
 };
 
-export const basic = () => <DoubleColumn >  </DoubleColumn>;
+export const basic = () => <DoubleColumn /> ;
 

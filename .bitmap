@@ -67,17 +67,12 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.ss4u-components/layout/double-column@0.0.1": {
+    "smart-solution-4u.ss4u-components/layout/double-column@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/layout/double-column/DoubleColumn.js",
                 "test": false,
                 "name": "DoubleColumn.js"
-            },
-            {
-                "relativePath": "src/components/layout/double-column/backgroud.png",
-                "test": false,
-                "name": "backgroud.png"
             },
             {
                 "relativePath": "src/components/layout/double-column/index.js",

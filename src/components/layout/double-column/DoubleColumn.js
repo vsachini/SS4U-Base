@@ -35,7 +35,7 @@ const DoubleColumn = ({logo, children}) => {
       </div>
       <div className="col-md-6 p-0 bg-white h-md-100 loginarea">
         <div className="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-          {children}
+          {children ? children : "Something goes here."}
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ export const overridings = {
     },
 
     body1: {
-      fontFamily: 'Gotham-Book'
+      //fontFamily: 'Gotham-Book'
     }
   },
 
