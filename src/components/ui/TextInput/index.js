@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, makeStyles } from '@material-ui/core'
+import { TextField, makeStyles, Typography } from '@material-ui/core'
 import errorMessages from './errorMessages'
 import FormContext from '../../form/Form/context'
 
@@ -51,16 +51,14 @@ const TextInput = ({ onChange, ...props }) => {
         message: getMessage(err, [actions.control.fieldsRef.current[options.name][err.type]])
       })
     }
-  }, [ actions.errors, options.name, actions.control.fieldsRef, options.value ])
+  }, [ actions.errors, options.name, actions.control.fieldsRef ])
 
-  const handleChange = React.useCallback( e => {
-    onChange({ name: e.target.name, value: e.target.value })
-  }, [ onChange ])
+
 
   return (
     <div className={ classes.root }>
-      <TextField { ...options } inputRef={ actions.register( validations ) } onChange={ handleChange } />
-      { actions.errors[options.name] && validationError.type === actions.errors[options.name].type && <span className={ classes.errorMessage }> { validationError.message } </span> }
+      <TextField { ...options } inputRef={ actions.register( validations ) }  />
+      { actions.errors[options.name] && validationError.type === actions.errors[options.name].type && <Typography display='block' variant='caption' align='left' color='error'> { validationError.message } </Typography> }
     </div>
   )
 }
