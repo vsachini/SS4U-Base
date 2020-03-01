@@ -8,7 +8,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    height: '100%'
   },
   buttonContainer: {
     marginTop: '1.5em',
@@ -32,21 +33,21 @@ const Login = ({ handleForgotPassword, handleSignUp, onLogin, logo, title }) => 
 
         <Typography variant='h1'> { title } </Typography>
         <Typography variant='subtitle2'> Welcome back! Please login to your account. </Typography>
+        
+        <form onSubmit={ handleSubmit( onLogin ) }>
+          <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
+
+          <Grid item xs={ 12 }>
+            { handleForgotPassword ? <Button onClick={ handleForgotPassword } > Forgot Password </Button> : null }
+          </Grid>
+
+          <Grid item xs={ 12 } className={ classes.buttonContainer }>
+            <Button variant="contained" color="primary" type='submit'> Login </Button>
+            { handleSignUp ? <Button variant="outlined" color="secondary" onClick={ handleSignUp } > Sign up </Button> : null }
+          </Grid>
+        </form>
       </Grid>
-
-      <form onSubmit={ handleSubmit( onLogin ) }>
-        <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
-        <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
-
-        <Grid item xs={ 12 }>
-          { handleForgotPassword ? <Button onClick={ handleForgotPassword } > Forgot Password </Button> : null }
-        </Grid>
-
-        <Grid item xs={ 12 } className={ classes.buttonContainer }>
-          <Button variant="contained" color="primary" type='submit'> Login </Button>
-          { handleSignUp ? <Button variant="outlined" color="secondary" onClick={ handleSignUp } > Sign up </Button> : null }
-        </Grid>
-      </form>
     </Grid>
   )
 }

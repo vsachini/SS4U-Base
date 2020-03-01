@@ -1,5 +1,5 @@
 {
   "companyName": "SS4U",
-  "logoPath": "/assets/public/logo.png",
+  "logoPath": "assets/img/logo.png",
   "errorMessagesFile": "errorConfig.json"
 }

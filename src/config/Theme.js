@@ -28,7 +28,6 @@ export const overridings = {
     },
     menu: {
       drawer: {
-        // background: projectColors.menu.drawer.background,
         text: projectColors.menu.drawer.text,
         icon: projectColors.menu.drawer.icon,
         selected: projectColors.primaryColor

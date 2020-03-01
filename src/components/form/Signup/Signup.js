@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    height: '100%'
   },
   loginRedirect: {
     fontSize: '.8em'
@@ -37,27 +38,27 @@ const Signup = ({ onSignup, handleLogin, logo, title }) => {
 
         <Typography variant='h1'> { title } </Typography>
         <Typography variant='subtitle2'> Please complete to create your account. </Typography>
-      </Grid>
 
-      <form onSubmit={ handleSubmit( onSignup ) }>
+        <form onSubmit={ handleSubmit( onSignup ) }>
 
-        <TextInput label='First name' name='firstname' inputRef={ register({ required: true })} errors={ errors } />
-        <TextInput label='Last name' name='lastname' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='First name' name='firstname' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='Last name' name='lastname' inputRef={ register({ required: true })} errors={ errors } />
 
-        <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
-        <TextInput label='Email' name='email' inputRef={ register({ required: true })} errors={ errors } />
-        <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
-        <TextInput label='Confirm Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
-        
-        <Checkbox label='I agree with terms and conditions' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='Email' name='email' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
+          <TextInput label='Confirm Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
+          
+          <Checkbox label='I agree with terms and conditions' inputRef={ register({ required: true })} errors={ errors } />
 
-        <Grid item xs={ 12 } >
-          <Button variant="contained" color="primary" type='submit'> Sign up </Button>
+          <Grid item xs={ 12 } >
+            <Button variant="contained" color="primary" type='submit'> Sign up </Button>
+          </Grid>
+        </form>
+
+        <Grid item xs={ 12 } className={ classes.buttonContainer }>
+          <Button onClick={ handleLogin } className={ classes.loginRedirect } > Already have an account? Login </Button>
         </Grid>
-      </form>
-
-      <Grid item xs={ 12 } className={ classes.buttonContainer }>
-        <Button onClick={ handleLogin } className={ classes.loginRedirect } > Already have an account? Login </Button>
       </Grid>
     </Grid>
   );

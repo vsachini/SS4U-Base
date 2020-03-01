@@ -8,7 +8,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+    height: '100%'
   },
   buttonContainer: {
     marginTop: '1.5em',
@@ -32,15 +33,15 @@ const ForgotPassword = ({ onSendRequest, logo, title }) => {
 
         <Typography variant='h1'> { title } </Typography>
         <Typography variant='subtitle2'> Enter your email and you will receive a link to reset your password. </Typography>
-      </Grid>
       
-      <form onSubmit={ handleSubmit( onSendRequest ) }>
-        <TextInput label='Email' name='email' type='email' inputRef={ register({ required: true })} errors={ errors } />
+        <form onSubmit={ handleSubmit( onSendRequest ) }>
+          <TextInput label='Email' name='email' type='email' inputRef={ register({ required: true })} errors={ errors } />
 
-        <Grid item xs={ 12 } className={ classes.buttonContainer } >
-          <Button variant="contained" color="primary" type='submit'> Send </Button>
-        </Grid>
-      </form>
+          <Grid item xs={ 12 } className={ classes.buttonContainer } >
+            <Button variant="contained" color="primary" type='submit'> Send </Button>
+          </Grid>
+        </form>
+      </Grid>
     </Grid>
   );
 }
