@@ -8,7 +8,4 @@ export default {
   component: ForgotPassword,
 };
 
-export const basic = () => <ForgotPassword
-  onSendRequest={action('send-request-click')}
-  title="My Title"
-/>;
+export const basic = () => <ForgotPassword onSendRequest={action('send-request-click')} title='SS4U' logo='assets/img/logo.png' />;

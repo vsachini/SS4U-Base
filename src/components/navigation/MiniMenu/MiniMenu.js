@@ -1,21 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import { withRouter } from 'react-router-dom';
-import { Avatar, Link, Button, Menu, MenuItem, Hidden } from '@material-ui/core';
+import { Avatar, Link, Button, Menu, MenuItem, makeStyles, CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText, Hidden } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import { KeyboardArrowDown } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -24,8 +13,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   appBar: {
-    backgroundColor: theme.palette.menu.appBar.background,
-    color: theme.palette.menu.appBar.text,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
@@ -53,16 +40,12 @@ const useStyles = makeStyles(theme => ({
   },
   drawerOpen: {
     width: drawerWidth,
-    backgroundColor: theme.palette.menu.drawer.background,
-    color: theme.palette.menu.drawer.text,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerClose: {
-    backgroundColor: theme.palette.menu.drawer.background,
-    color: theme.palette.menu.drawer.text,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -87,14 +70,8 @@ const useStyles = makeStyles(theme => ({
   username: {
     marginLeft: '1rem'
   },
-  icon: {
-    color: theme.palette.menu.drawer.icon
-  },
   iconSelected: {
-    color: theme.palette.secondary.main
-  },
-  text: {
-    color: theme.palette.menu.drawer.text
+    color: theme.palette.primary
   },
   menuList: {
     marginTop: '2.2em'
@@ -108,7 +85,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MiniMenu = props => {
+const MiniMenu = ({ schema, logo, companyName, user, ...props }) => {
+
   const classes = useStyles();
   const [open, setOpen] = React.useState( false );
   const [anchorDropdown, setAnchorDropdown] = React.useState(null);
@@ -132,23 +110,26 @@ const MiniMenu = props => {
   return (
     <div className={ classes.root }>
       <CssBaseline />
-      <AppBar position="fixed" className={ clsx(classes.appBar, { [classes.appBarShift]: open, }) } >
+      <AppBar color='inherit' position="fixed" className={ clsx(classes.appBar, { [classes.appBarShift]: open, }) } >
         <Toolbar>
           <IconButton color="inherit" aria-label="open drawer" onClick={ handleDrawerOpen } edge="start" className={ clsx(classes.menuButton, { [classes.hide]: open }) } >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={ classes.logo } >
-            <Avatar alt="Logo" src={ `assets/img/${ process.env.REACT_APP_LOGO }` } style={{ marginRight: '15px' }} />
+            <Avatar alt="Logo" src={ logo } style={{ marginRight: '15px' }} />
             <Hidden smDown>
-              { process.env.REACT_APP_COMPANY_NAME }
+              { companyName }
             </Hidden>
           </Typography>
           <div className={ classes.profileButton }>
             <Button onClick={ handleDropdown }> 
               <Hidden smDown>
-                <Avatar alt="Profile" src={ `assets/img/${ process.env.REACT_APP_LOGO }` } style={{ marginRight: '15px' }} />
+                <Avatar alt="Profile" src={ user.profilePicture } style={{ marginRight: '15px' }} />
               </Hidden>
-              Julien Carr
+
+              { user.name }
+
+              <KeyboardArrowDown />
             </Button>
             <Menu id="simple-menu" anchorEl={ anchorDropdown } keepMounted open={ Boolean(anchorDropdown) } onClose={ handleDropdownClose } className={ classes.menuList } >
               <MenuItem onClick={ handleDropdownClose }> Logout </MenuItem>
@@ -164,10 +145,10 @@ const MiniMenu = props => {
         </div>
         <Divider />
         <List component="nav">
-          { props.schema.map((link, index) => {
+          { schema.map((link, index) => {
             return (
               <ListItem button component={ Link } to={ link.to } selected={ props.location.pathname === link.to } key={ index } >
-                <ListItemIcon className={ props.location.pathname === link.to ? classes.iconSelected : classes.icon }> { link.icon } </ListItemIcon>
+                <ListItemIcon>{ link.icon }</ListItemIcon>
                 <ListItemText className={ classes.text } primary={ link.label } />
               </ListItem>
             )

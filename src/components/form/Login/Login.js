@@ -1,60 +1,54 @@
-import React from 'react';
-import { TextField, makeStyles, Button, Grid, Typography } from '@material-ui/core'
+import React from 'react'
+import { makeStyles, Grid, Button, Hidden, Typography } from '@material-ui/core'
+import TextInput from '../../ui/TextInput'
 import { useForm } from 'react-hook-form'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    textAlign: 'center',
-    width: '350px'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+  },
+  buttonContainer: {
+    marginTop: '1.5em',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
   }
-}));
+}))
 
-const Login = ({ onLogin, title = 'SS4U' }) => {
-
+const Login = ({ handleForgotPassword, handleSignUp, onLogin, logo, title }) => {
 
   const { register, handleSubmit, errors } = useForm()
-  const classes = useStyles();
-
-  const onSubmit = data => onLogin(data)
+  const classes = useStyles()
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Typography variant='h1'> {title} </Typography>
-            <Typography variant='subtitle2'>Welcome back! Please login to your account.</Typography>
-          </Grid>
+    <Grid container spacing={ 0 } className={ classes.root } >
+      <Grid item xs={ 12 }>
+        <Hidden smUp>
+          <img src={ logo } alt='logo' />
+        </Hidden>
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="username" inputRef={register({ required: true })} label='Username *' />
-            {errors.username && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
+        <Typography variant='h1'> { title } </Typography>
+        <Typography variant='subtitle2'> Welcome back! Please login to your account. </Typography>
+      </Grid>
 
-          </Grid>
+      <form onSubmit={ handleSubmit( onLogin ) }>
+        <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
+        <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="password" inputRef={register({ required: true })} label='Password *' />
-            {errors.password && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
-
-          <Grid item xs={12}>
-            <Button href="#text-buttons"> Forgot Password </Button>
-          </Grid>
-
-          <Grid container>
-            <Grid item xs={6}>
-              <Button variant="contained" color='primary' type='submit'> Login </Button>
-            </Grid>
-
-            <Grid item xs={6}>
-              <Button variant="outlined" color='secondary'> Sign up </Button>
-            </Grid>
-          </Grid>
+        <Grid item xs={ 12 }>
+          { handleForgotPassword ? <Button onClick={ handleForgotPassword } > Forgot Password </Button> : null }
         </Grid>
-      </div>
-    </form>
-  );
+
+        <Grid item xs={ 12 } className={ classes.buttonContainer }>
+          <Button variant="contained" color="primary" type='submit'> Login </Button>
+          { handleSignUp ? <Button variant="outlined" color="secondary" onClick={ handleSignUp } > Sign up </Button> : null }
+        </Grid>
+      </form>
+    </Grid>
+  )
 }
 
-export default Login;
+export default Login

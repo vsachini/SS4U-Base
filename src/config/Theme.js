@@ -1,8 +1,8 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme } from "@material-ui/core/styles";
 
-const theme = {
+const projectColors = {
   primaryColor: '#52D8DD',
-  secondaryColor: '#52D8DD',
+  secondaryColor: '#359397',
   textColor: '#2B2B2B',
   menu: {
     drawer: {
@@ -17,71 +17,66 @@ const theme = {
   }
 }
 
-export default createMuiTheme({
+export const overridings = {
   palette: {
     primary: {
-      main: theme.primaryColor,
+      main: projectColors.primaryColor,
+      contrastText: "#fff",
     },
     secondary: {
-      main: theme.secondaryColor
+      main: projectColors.secondaryColor,
     },
-    title: theme.primaryColor,
-    subtitle: 'rgba(77, 79, 92, .5)',
-    font: theme.textColor,
     menu: {
       drawer: {
-        background: theme.menu.drawer.background,
-        text: theme.menu.drawer.text,
-        icon: theme.menu.drawer.icon,
-        selected: theme.secondaryColor
-      },
-      appBar: {
-        background: theme.menu.appBar.background,
-        text: theme.menu.appBar.text
+        // background: projectColors.menu.drawer.background,
+        text: projectColors.menu.drawer.text,
+        icon: projectColors.menu.drawer.icon,
+        selected: projectColors.primaryColor
       },
     },
     action: {
-      selected: 'rgba(0,0,0,.2)'
+      selected: projectColors.secondaryColor
     }
   },
-  overrides: {
-    MuiButton: {
-      outlined: {
-        border: `1px solid ${ theme.primaryColor }`,
-      },
-      contained: {
-        backgroundColor: theme.primaryColor,
-        color: '#fff',
-        '&:hover': {
-          color: '#fff',
-          backgroundColor: theme.secondaryColor
-        }
-      }
+  toolbar: {
+    root: {
+      backgroundColor: 'black'
     }
-  //   MuiTypography: {
-  //     body1: {
-  //       fontSize: 'unset',
-  //       fontFamily: 'Gotham-Book'
-  //     }
-  //   },
-  //   MuiFormLabel: {
-  //     root: {
-  //       color: 'black',
-  //       fontFamily: 'Gotham-Book',
-  //       fontSize: 'unset'
-  //     }
-  //   },
-  //   MuiInput: {
-  //     underline: {
-  //       '&::before': {
-  //         borderBottom: '1px solid black'
-  //       }
-  //     }
-  //   },
-  //   MuiIconButton: {
-  //     root: {
-  //       color: 'unset'
-  //     }
-  //   }
+  },
+  typography: {
+    h1: {
+      color: projectColors.primaryColor,
+      fontSize: '1.8em',
+      letterSpacing: '.5rem',
+      margin: '.2em 0',
+      fontWeight: 'bold'
+    },
+    subtitle2: {
+      color: projectColors.textColor
+    }
+  },
+
+  overrides: { 
+    MuiAppBar: {
+      root: {
+        backgroundColor: projectColors.menu.appBar.background,
+        color: projectColors.menu.appBar.text
+      }
+    },
+    MuiDrawer: {
+      paper: {
+        backgroundColor: projectColors.menu.drawer.background,
+        color: projectColors.menu.drawer.text,
+        "& .MuiButtonBase-root": {
+          color: projectColors.menu.drawer.text,
+        },
+        "& .MuiListItemIcon-root": {
+          color: projectColors.menu.drawer.icon
+        },
+      }
+    },
+    
   }
-});
+};
+
+export default createMuiTheme(overridings);

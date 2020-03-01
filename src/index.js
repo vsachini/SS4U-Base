@@ -5,10 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider } from '@material-ui/core';
 import Theme from './config/Theme';
+import Login from './components/form/Login';
 
 ReactDOM.render(
   <MuiThemeProvider theme={ Theme }> 
-    <App /> 
+    <Login title='SS4U' /> 
   </MuiThemeProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

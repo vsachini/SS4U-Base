@@ -1,83 +1,65 @@
 import React from 'react';
-import { TextField, makeStyles, Button, Grid, Typography } from '@material-ui/core'
-import { useForm } from 'react-hook-form'
+import { makeStyles, Button, Grid, Typography, Hidden } from '@material-ui/core'
+import TextInput from '../../ui/TextInput';
+import Checkbox from '../../ui/Checkbox';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    textAlign: 'center',
-    width: '350px'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+  },
+  loginRedirect: {
+    fontSize: '.8em'
+  },
+  buttonContainer: {
+    marginTop: '1.5em',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
   }
 }));
 
-
-
-const Signup = ({ onSignup, title = 'SS4U' }) => {
-
+const Signup = ({ onSignup, handleLogin, logo, title }) => {
 
   const { register, handleSubmit, errors } = useForm()
   const classes = useStyles();
 
-  const onSubmit = data => onSignup(data)
-
-  const MyTextInput = ({ name, label, required = false, ...props }) => (
-    <>
-      <TextField fullWidth={true} name={name} label={`${label} ${required ? '*' : ''}`} {...props} />
-      {errors[name] && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-    </>
-  )
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Typography variant='h1'> {title} </Typography>
-            <Typography variant='subtitle2'>Please complete to create your account.</Typography>
-          </Grid>
+    <Grid container spacing={ 0 } className={ classes.root } >
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="firstname" inputRef={register({ required: true })} label='First name *' />
-            {errors.firstname && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
+      <Grid item xs={ 12 }>
+        <Hidden smUp>
+          <img src={ logo } alt='logo' />
+        </Hidden>
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="lastname" inputRef={register({ required: true })} label='Last name *' />
-            {errors.lastname && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
+        <Typography variant='h1'> { title } </Typography>
+        <Typography variant='subtitle2'> Please complete to create your account. </Typography>
+      </Grid>
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="username" inputRef={register({ required: true })} label='Username *' />
-            {errors.username && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
+      <form onSubmit={ handleSubmit( onSignup ) }>
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="email" inputRef={register({ required: true })} label='Email *' />
-            {errors.email && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
+        <TextInput label='First name' name='firstname' inputRef={ register({ required: true })} errors={ errors } />
+        <TextInput label='Last name' name='lastname' inputRef={ register({ required: true })} errors={ errors } />
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="password" type="password" inputRef={register({ required: true })} label='Password *' />
-            {errors.password && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
+        <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
+        <TextInput label='Email' name='email' inputRef={ register({ required: true })} errors={ errors } />
+        <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
+        <TextInput label='Confirm Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
+        
+        <Checkbox label='I agree with terms and conditions' inputRef={ register({ required: true })} errors={ errors } />
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="confirmPassword" type="password" inputRef={register({ required: true })} label='Confirm Password *' />
-            {errors.confirmPassword && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
-          </Grid>
-
-          <Grid item xs={12}>
-            <Button variant="contained" color='primary' type='submit'> Sign up </Button>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Button href="#text-buttons"> Already have an account? Login </Button>
-          </Grid>
-
-
+        <Grid item xs={ 12 } >
+          <Button variant="contained" color="primary" type='submit'> Sign up </Button>
         </Grid>
-      </div>
-    </form>
+      </form>
+
+      <Grid item xs={ 12 } className={ classes.buttonContainer }>
+        <Button onClick={ handleLogin } className={ classes.loginRedirect } > Already have an account? Login </Button>
+      </Grid>
+    </Grid>
   );
 }
 

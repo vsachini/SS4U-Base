@@ -8,7 +8,4 @@ export default {
   component: Signup,
 };
 
-export const basic = () => <Signup
-  onSignup={action('Signup-click')}
-  title="My Title"
-/>;
+export const basic = () => <Signup onSignup={action('Signup-click')} title="SS4U" />;

@@ -1,10 +1,10 @@
 import React from 'react';
-import Menu from './';
+import FixedMenu from './';
 import MailIcon from '@material-ui/icons/Mail';
 
 export default {
-  title: 'navigation/Menu',
-  component: Menu,
+  title: 'navigation/Fixed-Menu',
+  component: FixedMenu,
 };
 
 const listMenu = [
@@ -14,4 +14,4 @@ const listMenu = [
   }
 ]
 
-export const basic = () => <Menu list={listMenu} />;
+export const basic = () => <FixedMenu list={listMenu} />;

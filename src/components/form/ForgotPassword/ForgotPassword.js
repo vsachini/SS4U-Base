@@ -1,45 +1,47 @@
 import React from 'react';
-import { TextField, makeStyles, Button, Grid, Typography } from '@material-ui/core'
-import { useForm } from 'react-hook-form'
+import { makeStyles, Button, Grid, Typography, Hidden } from '@material-ui/core'
+import TextInput from '../../ui/TextInput';
+import { useForm } from 'react-hook-form';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
-    textAlign: 'center',
-    width: '350px'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center'
+  },
+  buttonContainer: {
+    marginTop: '1.5em',
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
   }
 }));
 
-const ForgotPassword = ({ onSendRequest, title = 'SS4U' }) => {
-
+const ForgotPassword = ({ onSendRequest, logo, title }) => {
 
   const { register, handleSubmit, errors } = useForm()
   const classes = useStyles();
 
-  const onSubmit = data => onSendRequest(data)
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Typography variant='h1'> {title} </Typography>
-            <Typography variant='subtitle2'>Enter your email and we send you a password reset link.</Typography>
-          </Grid>
+    <Grid container spacing={ 0 } className={ classes.root } >
+      <Grid item xs={ 12 }>
+        <Hidden smUp>
+          <img src={ logo } alt='logoMobile' />
+        </Hidden>
 
-          <Grid item xs={12}>
-            <TextField fullWidth={true} name="email" inputRef={register({ required: true })} label='Email *' />
-            {errors.email && <Typography display='block' variant='caption' align='left' color='error'> This field is required. </Typography>}
+        <Typography variant='h1'> { title } </Typography>
+        <Typography variant='subtitle2'> Enter your email and you will receive a link to reset your password. </Typography>
+      </Grid>
+      
+      <form onSubmit={ handleSubmit( onSendRequest ) }>
+        <TextInput label='Email' name='email' type='email' inputRef={ register({ required: true })} errors={ errors } />
 
-          </Grid>
-
-            <Grid item xs={12}>
-              <Button variant="contained" color='primary' type='submit'> Send Request </Button>
-            </Grid>
-
+        <Grid item xs={ 12 } className={ classes.buttonContainer } >
+          <Button variant="contained" color="primary" type='submit'> Send </Button>
         </Grid>
-      </div>
-    </form>
+      </form>
+    </Grid>
   );
 }
 
