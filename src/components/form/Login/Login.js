@@ -11,6 +11,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     height: '100%'
   },
+  form: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
+  },
   buttonContainer: {
     marginTop: '1.5em',
     display: 'flex',
@@ -26,27 +32,29 @@ const Login = ({ handleForgotPassword, handleSignUp, onLogin, logo, title }) => 
 
   return (
     <Grid container spacing={ 0 } className={ classes.root } >
-      <Grid item xs={ 12 }>
+      <Grid item xs={ 12 } className={ classes.form }>
         <Hidden smUp>
           <img src={ logo } alt='logo' />
         </Hidden>
 
         <Typography variant='h1'> { title } </Typography>
         <Typography variant='subtitle2'> Welcome back! Please login to your account. </Typography>
-        
-        <form onSubmit={ handleSubmit( onLogin ) }>
-          <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
-          <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
 
-          <Grid item xs={ 12 }>
-            { handleForgotPassword ? <Button onClick={ handleForgotPassword } > Forgot Password </Button> : null }
-          </Grid>
+        <Grid item xs={ 8 } >
+          <form onSubmit={ handleSubmit( onLogin ) }>
+            <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
+            <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
 
-          <Grid item xs={ 12 } className={ classes.buttonContainer }>
-            <Button variant="contained" color="primary" type='submit'> Login </Button>
-            { handleSignUp ? <Button variant="outlined" color="secondary" onClick={ handleSignUp } > Sign up </Button> : null }
-          </Grid>
-        </form>
+            <Grid item xs={ 12 }>
+              { handleForgotPassword ? <Button onClick={ handleForgotPassword } > Forgot Password </Button> : null }
+            </Grid>
+
+            <Grid item xs={ 12 } className={ classes.buttonContainer }>
+              <Button variant="contained" color="primary" type='submit'> Login </Button>
+              { handleSignUp ? <Button variant="outlined" color="secondary" onClick={ handleSignUp } > Sign up </Button> : null }
+            </Grid>
+          </form>
+        </Grid>
       </Grid>
     </Grid>
   )

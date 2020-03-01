@@ -129,7 +129,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/forgot-password@0.0.1": {
+    "smart-solution-4u.components/forgot-password@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/form/ForgotPassword/ForgotPassword.js",
@@ -152,7 +152,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/login@0.0.1": {
+    "smart-solution-4u.components/login@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/form/Login/Login.js",
@@ -198,7 +198,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/signup@0.0.1": {
+    "smart-solution-4u.components/signup@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/form/Signup/Signup.js",

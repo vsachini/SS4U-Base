@@ -12,6 +12,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     height: '100%'
   },
+  form: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
+  },
   loginRedirect: {
     fontSize: '.8em'
   },
@@ -31,7 +37,7 @@ const Signup = ({ onSignup, handleLogin, logo, title }) => {
   return (
     <Grid container spacing={ 0 } className={ classes.root } >
 
-      <Grid item xs={ 12 }>
+      <Grid item xs={ 12 } className={ classes.form }>
         <Hidden smUp>
           <img src={ logo } alt='logo' />
         </Hidden>
