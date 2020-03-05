@@ -12,9 +12,12 @@ const useStyles = makeStyles(theme => ({
     minHeight: '100vh',
     backgroundColor: theme.palette.primary.dark
   },
+  logo: {
+    width: '35em'
+  }
 }));
 
-const DoubleColumn = ({logo, ...props }) => {
+const DoubleColumn = ({ logo, ...props }) => {
   const classes = useStyles();
   const logoFinal = logo ? logo : defaultLogo;
 
@@ -23,7 +26,7 @@ const DoubleColumn = ({logo, ...props }) => {
 
       <Hidden smDown>
         <Grid item xs={ 6 } className={ classes.leftColumn }>
-          <img src={ logoFinal } alt='logo' />
+          <img src={ logoFinal } alt='logo' className={ classes.logo } />
         </Grid>
       </Hidden>
 
