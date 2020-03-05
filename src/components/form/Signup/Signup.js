@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center'
+  },
+  logo: {
+    width: '20em'
   }
 }));
 
@@ -38,11 +41,11 @@ const Signup = ({ onSignup, handleLogin, logo, title }) => {
     <Grid container spacing={ 0 } className={ classes.root } >
 
       <Grid item xs={ 12 } className={ classes.form }>
-        <Hidden smUp>
-          <img src={ logo } alt='logo' />
+        <Hidden mdUp >
+          <img src={ logo } alt='logoMobile' className={ classes.logo } />
         </Hidden>
 
-        <Typography variant='h1'> { title } </Typography>
+        <Typography variant='h1'> { title ? title : null } </Typography>
         <Typography variant='subtitle2'> Please complete to create your account. </Typography>
 
         <form onSubmit={ handleSubmit( onSignup ) }>

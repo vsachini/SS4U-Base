@@ -8,4 +8,4 @@ export default {
   component: Signup,
 };
 
-export const basic = () => <Signup onSignup={action('Signup-click')} title="SS4U" />;
+export const basic = () => <Signup onSignup={action('Signup-click')}  logo='assets/img/logo.png' />;
