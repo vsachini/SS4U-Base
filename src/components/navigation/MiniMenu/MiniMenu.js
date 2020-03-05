@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { withRouter } from 'react-router-dom';
-import { Avatar, Link, Button, Menu, MenuItem, makeStyles, CssBaseline, AppBar, Toolbar, IconButton, Typography, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText, Hidden } from '@material-ui/core';
+import { withRouter, Link } from 'react-router-dom';
+import { Avatar, Button, Menu, MenuItem, makeStyles, CssBaseline, AppBar, Toolbar, IconButton, Drawer, Divider, List, ListItem, ListItemIcon, ListItemText, Hidden } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import { KeyboardArrowDown } from '@material-ui/icons';
@@ -10,7 +10,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    display: 'flex'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -64,8 +64,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   logo: {
-    display: 'flex',
-    alignItems: 'center'
+    height: '3em'
   },
   username: {
     marginLeft: '1rem'
@@ -82,6 +81,10 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
   }
 }));
 
@@ -115,12 +118,7 @@ const MiniMenu = ({ schema, logo, companyName, user, ...props }) => {
           <IconButton color="inherit" aria-label="open drawer" onClick={ handleDrawerOpen } edge="start" className={ clsx(classes.menuButton, { [classes.hide]: open }) } >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={ classes.logo } >
-            <Avatar alt="Logo" src={ logo } style={{ marginRight: '15px' }} />
-            <Hidden smDown>
-              { companyName }
-            </Hidden>
-          </Typography>
+          <img alt="Logo" src={ logo } className={ classes.logo } />
           <div className={ classes.profileButton }>
             <Button onClick={ handleDropdown }> 
               <Hidden smDown>
@@ -154,10 +152,14 @@ const MiniMenu = ({ schema, logo, companyName, user, ...props }) => {
             )
           })}
         </List>
-
       </Drawer>
+
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        { props.children }
+      </main>
     </div>
   );
 }
 
-export default withRouter( MiniMenu)
+export default withRouter( MiniMenu )

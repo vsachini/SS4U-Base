@@ -23,4 +23,4 @@ const menuSchema = [
   // {label: 'Expenses', icon: <AttachMoney />, to:'/dashboard'}
 ]
 
-export const basic = () => <MiniMenu schema={ menuSchema } logo='assets/img/logo.png' companyName='SS4U' user={{ name: 'Julien Carr' }} />;
+export const basic = () => <MiniMenu schema={ menuSchema } logo='assets/img/logo_menu.png' companyName='SS4U' user={{ name: 'Julien Carr' }} />;
