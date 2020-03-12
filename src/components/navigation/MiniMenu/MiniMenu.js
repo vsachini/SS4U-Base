@@ -88,7 +88,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const MiniMenu = ({ schema, logo, companyName, user, ...props }) => {
+const MiniMenu = ({ schema, logo, companyName, user, handleLogout, ...props }) => {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState( false );
@@ -108,6 +108,11 @@ const MiniMenu = ({ schema, logo, companyName, user, ...props }) => {
 
   const handleDropdownClose = () => {
     setAnchorDropdown(null);
+  }
+
+  const onLogout = () => {
+    handleLogout()
+    handleDropdownClose()
   }
 
   return (
@@ -130,7 +135,7 @@ const MiniMenu = ({ schema, logo, companyName, user, ...props }) => {
               <KeyboardArrowDown />
             </Button>
             <Menu id="simple-menu" anchorEl={ anchorDropdown } keepMounted open={ Boolean(anchorDropdown) } onClose={ handleDropdownClose } className={ classes.menuList } >
-              <MenuItem onClick={ handleDropdownClose }> Logout </MenuItem>
+              <MenuItem onClick={ onLogout }> Logout </MenuItem>
             </Menu>
           </div>
         </Toolbar>

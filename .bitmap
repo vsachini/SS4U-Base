@@ -19,6 +19,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "smart-solution-4u.components/card-person@0.0.3": {
+        "files": [
+            {
+                "relativePath": "src/components/surfaces/CardPerson/CardPerson.js",
+                "test": false,
+                "name": "CardPerson.js"
+            },
+            {
+                "relativePath": "src/components/surfaces/CardPerson/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/surfaces/CardPerson/stories.js",
+                "test": false,
+                "name": "stories.js"
+            }
+        ],
+        "mainFile": "src/components/surfaces/CardPerson/index.js",
+        "trackDir": "src/components/surfaces/CardPerson",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "smart-solution-4u.components/checkbox@0.0.1": {
         "files": [
             {
@@ -129,6 +152,57 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "smart-solution-4u.components/dragndrop@0.0.2": {
+        "files": [
+            {
+                "relativePath": "src/components/ui/dragndrop/DragNDrop.js",
+                "test": false,
+                "name": "DragNDrop.js"
+            },
+            {
+                "relativePath": "src/components/ui/dragndrop/DraggableItem.js",
+                "test": false,
+                "name": "DraggableItem.js"
+            },
+            {
+                "relativePath": "src/components/ui/dragndrop/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ui/dragndrop/stories.js",
+                "test": false,
+                "name": "stories.js"
+            }
+        ],
+        "mainFile": "src/components/ui/dragndrop/index.js",
+        "trackDir": "src/components/ui/dragndrop",
+        "origin": "AUTHORED",
+        "exported": true
+    },
+    "smart-solution-4u.components/dropdown-menu@0.0.1": {
+        "files": [
+            {
+                "relativePath": "src/components/ui/DropdownMenu/DropdownMenu.js",
+                "test": false,
+                "name": "DropdownMenu.js"
+            },
+            {
+                "relativePath": "src/components/ui/DropdownMenu/index.js",
+                "test": false,
+                "name": "index.js"
+            },
+            {
+                "relativePath": "src/components/ui/DropdownMenu/stories.js",
+                "test": false,
+                "name": "stories.js"
+            }
+        ],
+        "mainFile": "src/components/ui/DropdownMenu/index.js",
+        "trackDir": "src/components/ui/DropdownMenu",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "smart-solution-4u.components/error-message@0.0.1": {
         "files": [
             {
@@ -216,7 +290,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/mini-menu@0.0.5": {
+    "smart-solution-4u.components/mini-menu@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/navigation/MiniMenu/MiniMenu.js",
