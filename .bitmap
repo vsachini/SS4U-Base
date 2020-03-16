@@ -42,7 +42,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/checkbox@0.0.1": {
+    "smart-solution-4u.components/checkbox@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ui/Checkbox/index.js",
@@ -124,7 +124,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/double-column@0.0.3": {
+    "smart-solution-4u.components/double-column@0.0.6": {
         "files": [
             {
                 "relativePath": "src/components/layout/double-column/DoubleColumn.js",
@@ -203,7 +203,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/error-message@0.0.1": {
+    "smart-solution-4u.components/error-message@0.0.2": {
         "files": [
             {
                 "relativePath": "src/components/ui/ErrorMessage/index.js",
@@ -244,7 +244,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/forgot-password@0.0.4": {
+    "smart-solution-4u.components/forgot-password@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/form/ForgotPassword/ForgotPassword.js",
@@ -267,7 +267,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/login@0.0.4": {
+    "smart-solution-4u.components/login@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/form/Login/Login.js",
@@ -290,7 +290,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/mini-menu@0.0.6": {
+    "smart-solution-4u.components/mini-menu@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/navigation/MiniMenu/MiniMenu.js",
@@ -313,7 +313,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/signup@0.0.4": {
+    "smart-solution-4u.components/signup@0.0.7": {
         "files": [
             {
                 "relativePath": "src/components/form/Signup/Signup.js",
@@ -336,7 +336,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "smart-solution-4u.components/text-input@0.0.2": {
+    "smart-solution-4u.components/text-input@0.0.5": {
         "files": [
             {
                 "relativePath": "src/components/ui/TextInput/index.js",

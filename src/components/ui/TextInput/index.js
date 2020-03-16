@@ -5,17 +5,21 @@ import ErrorMessage from '../ErrorMessage'
 const useStyle = makeStyles( theme => ({
   input: {
     width: '100%'
+  },
+  label: {
+    marginTop: '15px'
   }
 }))
 
-const TextInput = ({ onChange, label='Input Text', name='inputText', errors, ...props }) => {
+const TextInput = ({ label='Input Text', name='inputText', errors, shrink = true, variant = 'outlined',  ...props }) => {
 
   const classes = useStyle()
+  const nestedName = name.indexOf('.') >= 0 ? name.split('.') : null
 
   return (
-    <div>
-      <TextField name={ name } label={ label } { ...props } className={ classes.input } />
-      { errors && errors[name] && <ErrorMessage name={ name } errors={ errors } /> }
+    <div className={ classes.label }>
+      <TextField name={ name } label={ label } { ...props } className={ classes.input } InputLabelProps={{ shrink: shrink }} variant={ variant } />
+      { errors && (errors[name] || (nestedName && errors?.[nestedName[0]]?.[nestedName[1]])) && <ErrorMessage name={ name } errors={ errors } /> }
     </div>
   )
 }

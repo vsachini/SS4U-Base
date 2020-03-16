@@ -127,7 +127,7 @@ const MiniMenu = ({ schema, logo, companyName, user, handleLogout, ...props }) =
           <div className={ classes.profileButton }>
             <Button onClick={ handleDropdown }> 
               <Hidden smDown>
-                <Avatar alt="Profile" src={ user.profilePicture } style={{ marginRight: '15px' }} />
+                <Avatar alt="Profile" src={ user.picture } style={{ marginRight: '15px' }} />
               </Hidden>
 
               { user.name }

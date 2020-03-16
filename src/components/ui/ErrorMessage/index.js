@@ -7,10 +7,13 @@ const ErrorMessage = ({ name, errors }) => {
   const [ message, setMessage ] = React.useState('')
 
   React.useEffect(() => {
-    if (errors[name] && errors[name].message) {
-      setMessage(errors[name].message)
+    const nestedName = name.indexOf('.') >= 0 ? name.split('.') : null
+    const err = nestedName ? errors?.[nestedName[0]]?.[nestedName[1]] : errors[name]
+
+    if (err.message) {
+      setMessage(err.message)
     } else {
-      setMessage( getErrorMessage(errors[name]) )
+      setMessage(getErrorMessage(err))
     }
   }, [ errors, name ])
 

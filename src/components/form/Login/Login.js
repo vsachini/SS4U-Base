@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     height: '100%'
   },
-  form: {
+  formContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,8 +34,8 @@ const Login = ({ handleForgotPassword, handleSignUp, onLogin, logo, title }) => 
   const classes = useStyles()
 
   return (
-    <Grid container spacing={ 0 } className={ classes.root } >
-      <Grid item xs={ 12 } className={ classes.form }>
+    <Grid container className={ classes.root } >
+      <Grid item xs={ 12 } className={ classes.formContainer }>
         <Hidden mdUp >
           <img src={ logo } alt='logoMobile' className={ classes.logo } />
         </Hidden>
@@ -44,7 +44,7 @@ const Login = ({ handleForgotPassword, handleSignUp, onLogin, logo, title }) => 
         <Typography variant='subtitle2'> Welcome back! Please login to your account. </Typography>
 
         <Grid item xs={ 8 } >
-          <form onSubmit={ handleSubmit( onLogin ) }>
+          <form onSubmit={ handleSubmit( onLogin ) } >
             <TextInput label='Username' name='username' inputRef={ register({ required: true })} errors={ errors } />
             <TextInput label='Password' name='password' type='password' inputRef={ register({ required: true })} errors={ errors } />
 

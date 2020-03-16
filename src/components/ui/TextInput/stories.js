@@ -6,4 +6,4 @@ export default {
   component: TextInput,
 };
 
-export const basic = () => <TextInput label='test' />;
+export const basic = () => <TextInput label='test' name='staff' />;
