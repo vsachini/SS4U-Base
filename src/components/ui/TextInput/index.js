@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextField, makeStyles } from '@material-ui/core'
 import ErrorMessage from '../ErrorMessage'
+import TextMaskCustom from './TextMaskCustom';
 
 const useStyle = makeStyles( theme => ({
   input: {
@@ -8,20 +9,23 @@ const useStyle = makeStyles( theme => ({
   },
   label: {
     marginTop: '15px'
+  },
+  disabled: {
+    backgroundColor: '#f6f6f6'
   }
 }))
 
-const TextInput = ({ label='Input Text', name='inputText', errors, shrink = true, variant = 'outlined',  ...props }) => {
+const TextInput = React.memo(({ label='Input Text', name='inputText', errors, shrink = true, mask = false, variant = 'outlined',  ...props }) => {
 
   const classes = useStyle()
   const nestedName = name.indexOf('.') >= 0 ? name.split('.') : null
 
   return (
     <div className={ classes.label }>
-      <TextField name={ name } label={ label } { ...props } className={ classes.input } InputLabelProps={{ shrink: shrink }} variant={ variant } />
-      { errors && (errors[name] || (nestedName && errors?.[nestedName[0]]?.[nestedName[1]])) && <ErrorMessage name={ name } errors={ errors } /> }
+      <TextField name={ name } label={ label } className={ `${ classes.input } ${ props.disabled ? classes.disabled : '' }` } InputLabelProps={{ shrink: shrink }} variant={ variant } InputProps={{ inputComponent: TextMaskCustom }} inputProps={{ mask: mask ? mask : false, guide: false }} inputRef={ props.inputRef } { ...props } />
+      { errors && (errors[name] || (nestedName && errors?.[nestedName[0]]?.[nestedName[1]])) && <ErrorMessage name={ name } errors={ errors } control={ props.control } /> }
     </div>
   )
-}
+})
 
 export default TextInput

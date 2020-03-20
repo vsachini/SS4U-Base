@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { getErrorMessage } from '../DefaultErrorMessages'
 
-const ErrorMessage = ({ name, errors }) => {
+const ErrorMessage = ({ name, errors, control }) => {
 
   const [ message, setMessage ] = React.useState('')
 
@@ -13,9 +13,18 @@ const ErrorMessage = ({ name, errors }) => {
     if (err.message) {
       setMessage(err.message)
     } else {
-      setMessage(getErrorMessage(err))
+      let msg = getErrorMessage(err)
+
+      if (control) {
+        let qty = msg.match(/{/gi) ? msg.match(/{/gi).length : 0
+          for (let i = 0; i < qty; i++) {
+            msg = msg.replace(`{${i}}`, control.fieldsRef.current[name][err.type])
+          }
+      }
+
+      setMessage(msg)
     }
-  }, [ errors, name ])
+  }, [ errors, name, control ])
 
   return message && <Typography display='block' variant='caption' align='left' color='error'> { message } </Typography>
 }
