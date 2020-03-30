@@ -6,7 +6,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     textAlign: 'center',
-    width: '350px'
+    width: '450px'
   }
 }));
 
