@@ -3,7 +3,7 @@ import { TextField, makeStyles } from '@material-ui/core'
 import ErrorMessage from '../ErrorMessage'
 import TextMaskCustom from './TextMaskCustom';
 
-const useStyle = makeStyles( theme => ({
+const useStyles = makeStyles( theme => ({
   input: {
     width: '100%'
   },
@@ -17,7 +17,7 @@ const useStyle = makeStyles( theme => ({
 
 const TextInput = React.memo(({ label='Input Text', name='inputText', errors, shrink = true, mask = false, variant = 'outlined',  ...props }) => {
 
-  const classes = useStyle()
+  const classes = useStyles()
   const nestedName = name.indexOf('.') >= 0 ? name.split('.') : null
 
   return (
